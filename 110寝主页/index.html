@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUST东十一110寝室主页</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 头部区域 */
+        .header {
+            background-image: url('img/background.jpg');
+            background-size: cover;  /* 背景图片覆盖整个区域 */
+            background-position: center top;  /* 背景图片居中对齐 */
+            background-repeat: no-repeat;  /* 不重复背景图片 */
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            height: 680px;  /* 设定头部的高度 */
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: black;
+            background-color: transparent;
+            display: inline-block;
+            padding: 20px;
+            position: relative;
+            top: -30px;  /* 微调标题位置 */
+        }
+
+        /* 内容区域 */
+        .content {
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .content .left, .content .right, .content .center {
+            display: flex;
+            align-items: center;  /* 垂直居中 */
+        }
+
+        .content p, .content small {
+            margin: 0;
+            color: black;
+        }
+
+        .content a {
+            text-decoration: underline;  /* 为链接添加下划线 */
+            color: black;
+            padding: 5px 10px;
+            margin-top: 10px;
+            transition: color 0.3s;  /* 添加平滑过渡效果 */
+        }
+
+        /* 链接的悬停效果 */
+        .content a:hover {
+            color: blue;  /* 悬停时文字变为蓝色 */
+        }
+
+        /* 主内容区域的样式 */
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);  /* 使用4列网格布局 */
+            gap: 20px;
+            padding: 30px;
+            text-align: center;
+            position: absolute;
+            top: 150px; /* 将内容移至标题下方35px */
+            left: 50%;  /* 将内容从左边缘居中 */
+            transform: translateX(-50%);  /* 确保内容水平居中 */
+            width: 80%;
+            max-width: 1200px;  /* 限制最大宽度 */
+        }
+
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* 水平居中对齐 */
+            position: relative;
+        }
+
+        .box {
+            position: relative;
+            width: 130%;  /* 恢复正方形的宽度 */
+            padding-bottom: 130%;  /* 保证高度与宽度相等，形成正方形 */
+            border-radius: 10px;  /* 圆角效果 */
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            transform: scale(0.67);  /* 初始缩小 */
+            box-sizing: border-box;
+        }
+
+        .box:hover {
+            transform: scale(0.7);  /* 悬停时放大 */
+        }
+
+        .box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* 保持图片比例，并填充整个容器 */
+        }
+
+        /* 文字 */
+        .box-container p {
+            margin-top: 10px;  /* 文字与图片之间的间距 */
+            color: whitesmoke;
+            font-size: 16px;
+            position: absolute;
+            bottom: -10px;  /* 将文字移到方块的正下方，距离为10px */
+        }
+
+        /* 底部音频播放区 */
+        audio {
+            width: 180px;
+        }
+
+        /* 音频播放器的文本居中和左移 */
+        .right {
+            padding-right: 30px; /* 向左移动播放器 */
+            text-align: center; /* 中央对齐文本和播放器 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .right p {
+            margin: 0 0 6px 0;  /* 添加文本与播放器之间的间距 */
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 头部区域，包含背景图和内容 -->
+    <div class="header">
+        <h1>HUST东十一110寝室主页</h1>
+
+        <!-- 头部内容区域 -->
+        <div class="content">
+            <!-- 左侧区域：显示"个人制作—感谢访问"和"制作人：秦文义" -->
+            <div class="left" style="flex-direction: column;">
+                <p>个人制作—感谢访问</p>
+                <small><a href="qin.html">制作人：秦文义</a></small>  <!-- 链接到个人页面 -->
+            </div>
+
+            <!-- 中央区域：返回班级链接 -->
+            <div class="center">
+                <a href="https://leggggend.github.io/freshmanweclass/">返回班级</a> <!-- 链接到班级主页 -->
+            </div>
+
+            <!-- 右侧区域：音频播放器 -->
+            <div class="right">
+                <p>点击播放音乐~</p>
+                <audio controls>
+                    <source src="img/music.mp3" type="audio/mp3">
+                    您的浏览器不支持音频元素。 <!-- 如果浏览器不支持音频元素，显示提示 -->
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <!-- 每个链接是一个方形的图片块，点击后跳转到不同页面 -->
+        <div class="box-container">
+            <a href="qin.html" class="box">
+                <img src="img/qin.jpg" alt="秦文义">
+            </a>
+            <p>秦文义</p>
+        </div>
+        <div class="box-container">
+            <a href="peng.html" class="box">
+                <img src="img/peng.jpg" alt="彭琨璘">
+            </a>
+            <p>彭琨璘</p>
+        </div>
+        <div class="box-container">
+            <a href="kang.html" class="box">
+                <img src="img/kang.jpg" alt="康浩然">
+            </a>
+            <p>康浩然</p>
+        </div>
+        <div class="box-container">
+            <a href="lan.html" class="box">
+                <img src="img/lan.jpg" alt="兰金鑫">
+            </a>
+            <p>兰金鑫</p>
+        </div>
+    </div>
+
+</body>
+</html>
